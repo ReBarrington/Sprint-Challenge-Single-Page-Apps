@@ -1,15 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
-import styled from "styled-components";
-
-const StyledButton = styled.button `
-  font-size: 150%;
-  margin-left: 10%;
-  margin-top: 10%;
-  background-color: #ABD2EB;
-  padding: 1%;
-  `
+import "./WelcomePage.css"
 
 
 export default function WelcomePage() {
@@ -23,7 +15,7 @@ export default function WelcomePage() {
           alt="rick"
         />
         <Link to={`characters`}>
-          <StyledButton>See Characters</StyledButton>
+          <button>See Characters</button>
         </Link>
       </header>
     </section>
