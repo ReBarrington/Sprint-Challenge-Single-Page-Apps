@@ -11,8 +11,9 @@ const Boxes = styled.div `
 const Search = styled.form `
 display: flex;
 justify-content: center;
-border: 5px solid #FFE91B;
+border: 5px solid #ABD2EB;;
 padding: 3%;
+background-color: #ABD2EB;
 `
 
 export default function CharacterList() {
