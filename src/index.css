@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Trade+Winds&display=swap');
+
 body {
   margin: 0;
   padding: 0;
@@ -36,5 +38,11 @@ main {
 
 header h1 {
   text-align: center;
+}
+
+.ui, .centered {
   text-decoration: none;
+  color: orange;
+  font-family: 'Trade Winds';
+  font-size: 200%;
 }
