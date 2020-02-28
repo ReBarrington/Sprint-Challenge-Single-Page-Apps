@@ -1,10 +1,24 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CharacterCard from "./CharacterCard";
+import styled from "styled-components";
+
+const Boxes = styled.div `
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    `
+const Search = styled.form `
+display: flex;
+justify-content: center;
+border: 5px solid #FFE91B;
+padding: 3%;
+`
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [data, setData] = useState([]);
+  const [query, setQuery] = useState("");
 
 
   useEffect(() => {
@@ -13,18 +27,47 @@ export default function CharacterList() {
     axios
       .get('https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/')
       .then(response => {
-        console.log(repsonse, " is response")
-        setData(response);
+        console.log(response.data.results, " is response.data.results")
+        const characters = response.data.results.filter(character =>
+          character.name.toLowerCase().includes(query.toLowerCase())
+        );
+        setData(characters);
       })
-      .catch (err => {
-        console.error(err, "error")
-      });
-  
-  }, []);
+  }, [query]);
+
+  const handleInputChange = event => {
+    setQuery(event.target.value);
+  };
 
   return (
-    <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
-    </section>
+    <div>
+    <Search className="search">
+      <input
+        type="text"
+        onChange={handleInputChange}
+        value={query}
+        name="name"
+        tabIndex="0"
+        className="prompt search-name"
+        placeholder="search by name"
+        autoComplete="off"
+      />
+      </Search>
+    <Boxes className="character">
+      {data.map(character => {
+        return (
+          <div>
+            <CharacterCard
+              key={character.name}
+              name={character.name}
+              status={character.status}
+              species={character.species}
+              origin={character.origin.name}
+            />
+          </div>
+        );
+      })}
+    </Boxes>
+  </div>
   );
 }

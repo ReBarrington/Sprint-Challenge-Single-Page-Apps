@@ -12,11 +12,15 @@ const BorderAroundCard = styled.div `
   width: 400px;
   `
 
-export default function CharacterCard() {
+const CharacterCard = props => {
   return (
-  <BorderAroundCard className="character-list">
-    <h2>CHARACTER NAME</h2>
-    <p>CHARACTER INFO</p>
+  <BorderAroundCard className="character-list" key={props.name}>
+    <h2>{props.name}</h2>
+    <p>Status: {props.status}</p>
+    <p>Species: {props.species}</p>
+    {/* <p>Origin: {props.origin.name}</p> */}
   </BorderAroundCard>
   );
 }
+
+export default CharacterCard
