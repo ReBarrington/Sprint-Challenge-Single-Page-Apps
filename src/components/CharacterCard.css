@@ -1,0 +1,14 @@
+.character-list {
+    border: 5px solid black;
+    color: black;
+    margin: 2%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+p {
+    line-height: 0%;
+}

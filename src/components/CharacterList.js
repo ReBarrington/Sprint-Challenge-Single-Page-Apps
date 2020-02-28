@@ -15,6 +15,9 @@ border: 5px solid #ABD2EB;;
 padding: 3%;
 background-color: #ABD2EB;
 `
+const StyledInput = styled.input `
+  width: 80%
+  `
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
@@ -43,7 +46,7 @@ export default function CharacterList() {
   return (
     <div>
     <Search className="search">
-      <input
+      <StyledInput
         type="text"
         onChange={handleInputChange}
         value={query}
@@ -63,7 +66,8 @@ export default function CharacterList() {
               name={character.name}
               status={character.status}
               species={character.species}
-              origin={character.origin.name}
+              origin={character.origin}
+              src={character.image}
             />
           </div>
         );
