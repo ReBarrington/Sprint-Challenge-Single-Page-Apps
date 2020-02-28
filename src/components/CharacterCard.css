@@ -1,3 +1,11 @@
+
+.boxes {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
 .character-list {
     border: 5px solid black;
     color: black;
@@ -6,7 +14,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: stretch;
 }
 
 p {

@@ -2,12 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CharacterCard from "./CharacterCard";
 import styled from "styled-components";
+import "./CharacterCard.css";
 
-const Boxes = styled.div `
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    `
 const Search = styled.form `
 display: flex;
 justify-content: center;
@@ -57,10 +53,9 @@ export default function CharacterList() {
         autoComplete="off"
       />
       </Search>
-    <Boxes className="character">
+    <div className="boxes">
       {data.map(character => {
         return (
-          <div>
             <CharacterCard
               key={character.name}
               name={character.name}
@@ -69,10 +64,9 @@ export default function CharacterList() {
               origin={character.origin}
               src={character.image}
             />
-          </div>
         );
       })}
-    </Boxes>
+    </div>
   </div>
   );
 }
